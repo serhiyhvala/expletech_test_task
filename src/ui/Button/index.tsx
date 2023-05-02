@@ -4,14 +4,19 @@ import {Link} from "react-router-dom";
 
 type ButtonProps = {
   children: ReactNode,
-  link: string
+  link?: string,
+  onClick?: () => void
 }
 
-const Button :FC<ButtonProps>= ({children, link}) => {
+const Button: FC<ButtonProps> = ({children, link, onClick}) => {
   return (
-      <Link to={link} className={styles.button}>
-        {children}
-      </Link>
+      link ?
+          <Link to={link} className={styles.button}>
+            {children}
+          </Link> :
+          <button className={styles.button} onClick={onClick}>
+            {children}
+          </button>
   );
 };
 
