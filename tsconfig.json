@@ -29,7 +29,8 @@
       "@pages/*": ["./pages/*"],
       "@type/*": ["./type/*"],
       "@constants/*": ["./constants/*"],
-      "@hooks/*": ["./hooks/*"]
+      "@hooks/*": ["./hooks/*"],
+      "@ui/*": ["./ui/*"]
     }
   },
   "include": ["src"],

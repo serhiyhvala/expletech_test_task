@@ -5,10 +5,9 @@
   border-radius: 15px;
   transition: all .4s ease-in-out;
   cursor: pointer;
-  &:hover {
-    background-color: #7575fa;
-    color: #fff;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .title {
