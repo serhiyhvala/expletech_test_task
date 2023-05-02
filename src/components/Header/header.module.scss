@@ -1,0 +1,21 @@
+.header {
+  background-color: #7575fa !important;
+}
+
+.container {
+  padding: 15px;
+  max-width: 1330px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.link {
+  font-weight: 600;
+  font-size: 25px;
+  transition: all .4s ease-in-out;
+  &:hover {
+    color: #fff;
+  }
+}
