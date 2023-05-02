@@ -11,10 +11,13 @@ import PostCard from "@components/PostCard";
 
 const Slick = () => {
   const dispatch = useAppDispatch()
-  const {posts} = useAppSelector(state => state.posts)
+  const {posts, loading} = useAppSelector(state => state.posts)
   useEffect(() => {
     dispatch(fetchPosts())
   }, [dispatch])
+  if(loading){
+    return <h2 className='loading'>Please Wait..</h2>
+  }
   return (
       <Slider {...settings}>
         {posts.map(item => (
