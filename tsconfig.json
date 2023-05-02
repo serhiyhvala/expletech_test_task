@@ -28,7 +28,8 @@
       "@styles/*": ["./styles/*"],
       "@pages/*": ["./pages/*"],
       "@type/*": ["./type/*"],
-      "@constants/*": ["./constants/*"]
+      "@constants/*": ["./constants/*"],
+      "@hooks/*": ["./hooks/*"]
     }
   },
   "include": ["src"],
