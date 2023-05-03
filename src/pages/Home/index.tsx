@@ -27,7 +27,7 @@ const Home = () => {
         <h1 className={styles.text}>All Posts</h1>
         <Slick/>
         <div className={styles.button}>
-          <Button onClick={handleModal}>Create Task</Button>
+          <Button onClick={handleModal}>Create Post</Button>
         </div>
         <Modal handleClose={handleModal} open={modal}/>
         <CreatedPosts/>
