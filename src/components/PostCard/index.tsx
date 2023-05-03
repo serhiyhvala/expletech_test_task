@@ -6,7 +6,7 @@ type PostCardsProps = {
   title: string
   body: string
   userId: number
-  id: number
+  id?: number
 }
 
 const PostCards: FC<PostCardsProps> = ({title, body, id}) => {
