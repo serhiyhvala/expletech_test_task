@@ -1,27 +1,39 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {postsService} from "@services/posts.service.ts";
-import {PostType} from "@type/post.type.ts";
+import {PostCreateType, PostType} from "@type/post.type.ts";
 import {CommentType} from "@type/comment.type.ts";
+import {postsApi} from "@services/posts.services.ts";
 
 type InitialStateType = {
   loading: boolean,
   posts: PostType[],
-  comments: CommentType[]
+  comments: CommentType[],
+  createdPosts: PostCreateType[]
 }
 
 const initialState: InitialStateType = {
   loading: false,
   posts: [],
-  comments: []
+  comments: [],
+  createdPosts: []
 }
 
-export const fetchPosts = createAsyncThunk('postsSlice/fetchPosts', postsService.getPosts)
-export const getComments = createAsyncThunk('postsSlice/getComments', (id: string) => postsService.getComments(id))
+export const getComments = createAsyncThunk('postsSlice/getComments', (id: string) => postsApi.getComments(id))
+
+export const fetchPosts = createAsyncThunk('postsSlice/fetchPosts', postsApi.getPosts)
 
 export const postsSlice = createSlice({
   name: 'postsSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    addPostToState: (state, action) => {
+      state.posts.push(action.payload)
+      state.createdPosts.push(action.payload)
+      localStorage.setItem("posts", JSON.stringify(state.createdPosts))
+    },
+    getFromLocaleStorage: (state, action) => {
+      state.createdPosts = action.payload
+    }
+  },
   extraReducers: builder => {
     builder.addCase(
         fetchPosts.pending, state => {
@@ -46,5 +58,7 @@ export const postsSlice = createSlice({
     )
   }
 })
+
+export const {addPostToState, getFromLocaleStorage} = postsSlice.actions
 
 export default postsSlice.reducer
