@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.text {
+  text-align: center;
+}
+
+.empty {
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.textCard {
+  color: #808080;
+  font-size: 15px;
+}
