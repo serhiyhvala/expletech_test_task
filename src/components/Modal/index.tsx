@@ -2,7 +2,7 @@ import {Modal} from "@mui/material";
 import {ChangeEvent, FC, FormEvent, useState} from "react";
 import styles from './modal.module.scss'
 import Button from "@ui/Button";
-import {PostCreateType} from "@type/post.type.ts";
+import {PostType} from "@type/post.type.ts";
 import {useAppDispatch} from "@hooks/useAppDispatch.ts";
 import {addPostToState} from "@store/posts/posts.slice.ts";
 
@@ -22,10 +22,11 @@ const ModalComponent: FC<ModalComponentProps> = ({open, handleClose}) => {
   }
   const handleSubmitForm = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const newPost: PostCreateType = {
+    const newPost: PostType = {
       title: input.title,
       body: input.body,
-      userId: +Math.random().toFixed(1) * 100
+      userId: +Math.random().toFixed(1) * 100,
+      id: +Math.random().toFixed(1) * 1000
     }
     dispatch(addPostToState(newPost))
     setInput({title: '', body: ''})

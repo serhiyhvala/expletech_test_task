@@ -23,13 +23,14 @@ const PostItem = () => {
           <h3>Post Descr: <span className={styles.text}>{body}</span></h3>
           <h3>Comments:</h3>
           <div className={styles.comments}>
-            {comments.map(item => (
-                <div key={item.postId} className={styles.item}>
-                  <h4>Email: <span className={styles.text}>{item.email}</span></h4>
-                  <h4>Username: <span className={styles.text}>{item.name}</span></h4>
-                  <h4>Comment: <span className={styles.text}>{item.body}</span></h4>
-                </div>
-            ))}
+            {comments.length === 0 ?
+                <span className={styles.text}>This Post Don't have comments</span> : comments.map(item => (
+                    <div key={item.postId} className={styles.item}>
+                      <h4>Email: <span className={styles.text}>{item.email}</span></h4>
+                      <h4>Username: <span className={styles.text}>{item.name}</span></h4>
+                      <h4>Comment: <span className={styles.text}>{item.body}</span></h4>
+                    </div>
+                ))}
           </div>
         </div>
         <Button link='/'>Go Back</Button>

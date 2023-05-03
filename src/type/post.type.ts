@@ -4,5 +4,3 @@ export type PostType = {
   body: string
   id: number
 }
-
-export type PostCreateType = Omit<PostType, 'id'>

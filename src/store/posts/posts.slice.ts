@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {PostCreateType, PostType} from "@type/post.type.ts";
+import {PostType} from "@type/post.type.ts";
 import {CommentType} from "@type/comment.type.ts";
 import {postsApi} from "@services/posts.services.ts";
 
@@ -7,7 +7,7 @@ type InitialStateType = {
   loading: boolean,
   posts: PostType[],
   comments: CommentType[],
-  createdPosts: PostCreateType[]
+  createdPosts: PostType[]
 }
 
 const initialState: InitialStateType = {
