@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: var(--max-width);
+  width: 400px;
+  margin: 0 auto;
+}
+
+input {
+  border: none;
+  font-size: 15px;
+  padding: 10px;
+}
