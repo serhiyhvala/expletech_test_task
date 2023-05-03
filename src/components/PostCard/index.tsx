@@ -1,5 +1,6 @@
 import {FC} from "react";
 import styles from './postCard.module.scss'
+import {cropText} from "@utils/cropText.ts";
 import Button from "@ui/Button";
 
 type PostCardsProps = {
@@ -12,9 +13,11 @@ type PostCardsProps = {
 const PostCards: FC<PostCardsProps> = ({title, body, id}) => {
   return (
       <div className={styles.card}>
-        <h2 className={styles.title}>Post Title: {title}</h2>
-        <p className={styles.body}>{body}</p>
-        <Button link={`post/${id}`}>Read Comments</Button>
+        <div className={styles.text}>
+          <h2 className={styles.title}>{cropText(title, 30)}</h2>
+          <p className={styles.body}>{cropText(body, 100)}</p>
+        </div>
+        <Button link={`/post/${id}`}>Read More</Button>
       </div>
   );
 };
